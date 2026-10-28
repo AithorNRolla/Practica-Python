@@ -2,7 +2,7 @@
 #para que la suma alcance o supee el valor 1000?
 
 #el valor no será 1000, si no 1001?? En la versión posterior que yo he metido, sobrepasa 1k!
-#con el numero fijo en 24 clava los 1k. Aunque seguramente no sea esto lo que he de buscar. 
+#el ejercicio lo he sacado con la IA.  
 
 valor = 0
 #aquí hago trampa, ya que el ejercicio va que el propio programa encuentre el número para llegar a 1k. 
