@@ -20,7 +20,7 @@ for num in lista:
 print(f"La suma de la lista {lista} es {suma}")
 """""
 
-#Solución alternativa a lo anterior. 
+#Solución alternativa a lo anterior. Aunque es un poco lioso sinceramente. 
 for indice, num in enumerate(lista):
     lista[indice]=num**2
 print(lista)
