@@ -22,3 +22,7 @@ print(f"La nota más alta es un {nota_maxima}")
 nota_min=min(notas_alumnos)
 print(f"La nota más baja es un {nota_min}")
 #Mi forma de hacerlo desde mi punto de vista es más limpia. 
+print(f"Las notas en orden son: {sorted(notas_alumnos)}")
+#Esto de "sorted" es del profesor. 
+print(f"Las notas de mayor a menor son: {sorted(notas_alumnos,reverse=True)}")
+#Añadido "reverse" de mi propia mano al ejemplo del profesor. 
