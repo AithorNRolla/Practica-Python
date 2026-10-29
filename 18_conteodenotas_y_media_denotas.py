@@ -19,16 +19,16 @@ else:
 """
 
 notas=0
-sumas_notas=0
+sumas=0
 
 nota=int(input("Introduce un número de calificación, 0 para finalizar el conteo."))
 while nota!=0:
     notas= notas+nota
-    sumas_notas= sumas_notas+1
+    sumas= sumas+1
     nota=int(input("Introduce otra calificación, 0 para finalizar."))
     
-if sumas_notas > 0:
-    m=notas/sumas_notas
+if sumas > 0:
+    m=notas/sumas
     print(f"La calificación media es: {m}")
 else:
     print("No se introdujeron las suficientes calificaciones para hacer media")
