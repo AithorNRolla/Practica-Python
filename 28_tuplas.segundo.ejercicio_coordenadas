@@ -4,23 +4,57 @@
 #En caso afirmativo, se solicitan de nuevo. 
 #Si responde que no, finaliza el programa mostrando la lista de coordenadas. 
 
+
+import math #primero, importamos. 
 lista_coordenadas=[] #Siempre hay que empezar definiendo!!
 continuar="S"        #Como hay que pedir si se quiere continuar, ponemos esto. 
 
 while continuar=="S": #Para que la S funcione, antes hay que poner "==" no una. 
-    x=int(input("Introduce coordenada X:  "))
-    y=int(input("Introduce coordenada Y:  "))
+    x=int(input("Introduce coordenada X del objetivo:  "))
+    y=int(input("Introduce coordenada Y del objetivo:  "))
     
     puntomapa=(x,y)                     #puntomapa+= (ese "=", es para guardar un parámetro)
     lista_coordenadas.append(puntomapa) 
     
     respuesta=input("¿Quieres introducir más coordenadas? (S/N):  ")
     continuar=respuesta.upper()         #El upper es para que reconozca las mayúsculas. 
-    
+
 print("Lista completa de coordenadas:   ")
 print(lista_coordenadas)
-#-------------
-#-------------
-#Define
-#Variables
-#Bucle
+
+#-------------------------------
+#Se pide al usuario su posición.
+#Después le muestra las coordenadas de dicho punto y las más cercanas a su posición. 
+
+punto1=lista_coordenadas[0]
+punto2=lista_coordenadas[1]
+distancia_x=punto2[0]-punto1[0] #Hay que meter la variable de la X y la Y para que hypot calcule. 
+distancia_y=punto2[1]-punto1[1]
+distancia=math.hypot(distancia_x,distancia_y)
+print("La distancia usando la hipotenusa es:  ",round(distancia, 2) ) #tras mucha vueltas, hecho. 
+#-------------------------------
+#--------RADAR--POSICION-------
+#-------------------------------
+                                                            #Esta parte es tremenda putada.
+print("El RADAR pide coordenadas para conocer tu posición.")
+punto_x=int(input("Introduce coordenada X: "))
+punto_y=int(input("Introduce coordenada Y: "))
+posicion=(punto_x,punto_y)
+objetivomascercano=min(lista_coordenadas,key=lambda p:math.dist(posicion,p))
+objetivomasalejado=max(lista_coordenadas,key=lambda p:math.dist(posicion,p))
+distancia_cercana=math.dist(posicion,objetivomascercano)
+distancia_alejada=math.dist(posicion,objetivomasalejado)
+print("POSICIÓN DEL RADAR CHUSTERO")
+print(f"Tu posición en el radar: {posicion}")
+print(f"Objetivo más cercano: {objetivomascercano}a una distancia de {round(distancia_cercana)}")
+print(f"Objetivo más alejado: {objetivomasalejado}a una distancia de {round(distancia_alejada)}")
+
+#-------------------------------
+#-------------------------------
+#Aquí abajo esta la definición para que todo lo de arriba se resuma más. 
+""""
+def distancia(punto1,punto2):
+    return math.hypot(distancia_x,distancia_y) #este es mío, no funciona.
+def distancia(punto1,punto2):
+    return math.hypot(punto1[0]-punto2[0],punto1[1]-punto2[1]) #el del profesor. 
+"""
