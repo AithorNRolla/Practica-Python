@@ -40,8 +40,8 @@ print("El RADAR pide coordenadas para conocer tu posición.")
 punto_x=int(input("Introduce coordenada X: "))
 punto_y=int(input("Introduce coordenada Y: "))
 posicion=(punto_x,punto_y)
-objetivomascercano=min(lista_coordenadas,key=lambda p:math.dist(posicion,p))
-objetivomasalejado=max(lista_coordenadas,key=lambda p:math.dist(posicion,p))
+objetivomascercano=min(lista_coordenadas,key=lambda p:math.dist(posicion,p)) #abajo está la otra opción sin lambda. 
+objetivomasalejado=max(lista_coordenadas,key=lambda p:math.dist(posicion,p)) #abajo está la otra opción sin lambda.
 distancia_cercana=math.dist(posicion,objetivomascercano)
 distancia_alejada=math.dist(posicion,objetivomasalejado)
 print("POSICIÓN DEL RADAR CHUSTERO")
@@ -57,4 +57,23 @@ def distancia(punto1,punto2):
     return math.hypot(distancia_x,distancia_y) #este es mío, no funciona.
 def distancia(punto1,punto2):
     return math.hypot(punto1[0]-punto2[0],punto1[1]-punto2[1]) #el del profesor. 
+"""
+#Esta es la parte que hemos tenido que dejar de almacén para ver otra opción en vez del lambda. 
+#Aunque he dado mucha vueltas, el float("inf"), el for punto in lista_coordenadas me da más control,
+#sin dejar una especie de "libre interpretación" al programa. 
+"""""
+    print("El RADAR pide coordenadas para conocer tu posición.")
+punto_x=int(input("Introduce coordenada X: "))
+punto_y=int(input("Introduce coordenada Y: "))
+posicion=(punto_x,punto_y)
+distancia_corta=float("inf")
+objetivo_cercano= None
+for punto in lista_coordenadas:
+    distancia_actual=math.dist(posicion,punto)
+    if distancia_actual<distancia_corta:
+        distancia_corta=distancia_actual
+        objetivo_cercano=punto
+print("Resultados del Chustaradar:")
+print(f"Tu posición actual: {posicion}")
+print(f"Objetivo más cercano: {objetivo_cercano} a una distancia de {round(distancia_corta)}")
 """
