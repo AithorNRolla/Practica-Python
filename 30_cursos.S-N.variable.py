@@ -17,6 +17,8 @@ if lenguaje in cursos:
 else:
     print("Lo siente, no tengo ese curso.")
 """
+#La parte de arriba son variables de hacer esto, la de abajo es la MÁS SENCILLA!
+
 if lenguaje.lower() in [c.lower() for c in cursos]:
     print("Tengo ese curso")
 else:
