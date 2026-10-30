@@ -12,9 +12,24 @@
 
 notas=[]
 #funciones propias
-
-
-
+def menu():
+    print("\n Menú de notas")
+    print("1: Añadir nota")
+    print("2: Mostrar nota extremas")
+    print("3: Total de aprobados")
+    print("4: Nota media")
+    print("5: Mostrar todas")
+    print("6: Salir")
+def aprobados():
+    if len(notas)==0:
+                print("Todavía no hay aprobados")
+            else:
+                total_aprobados=0
+                for num in notas:
+                    if num >5:
+                        total_aprobados=total_aprobados+1         
+             
+    
 
 #programa principal
 opcion=0
@@ -23,13 +38,7 @@ media=0
 todo=0
 
 while opcion!=6: #Recordemos que la ! signifira "diferente de". 
-    print("\n Menú de notas")
-    print("1: Añadir nota")
-    print("2: Mostrar nota extremas")
-    print("3: Total de aprobados")
-    print("4: Nota media")
-    print("5: Mostrar todas")
-    print("6: Salir")
+    menu()
     opcion=int(input("Elija una opción del 1 al 6   "))
     if opcion==1:
         nueva_nota=float(input("Añadir nota: "))
@@ -44,13 +53,6 @@ while opcion!=6: #Recordemos que la ! signifira "diferente de".
             print(f"Notas extremas {nota_extrema}")
             print(f"Notas mínimas {nota_minima}")
     elif opcion==3:
-        if len(notas)==0:
-            print("Todavía no hay aprobados")
-        else:
-            total_aprobados=0
-            for num in notas:
-                if num >5:
-                    total_aprobados=total_aprobados+1         
             print(f"Total de aprobados: {total_aprobados}")
     elif opcion==4:
         if len(notas)==0:
