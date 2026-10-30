@@ -10,6 +10,8 @@ for nota in numeros: #Empieza igual que el ejercicio 20
         aprobados.append(nota+1) #La diferencia es meter el append.
 print(aprobados)
 #-------------------------------------------------------
+#-------------------------------------------------------
+#-------------------------------------------------------
 aprobados=[nota+1 for nota in numeros if nota>=5] #Esto es COMPRESIÓN DE LISTAS.
 print(aprobados)
     
