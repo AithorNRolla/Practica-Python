@@ -1,0 +1,26 @@
+#Solicitar al usuario la introducción de coordenadas (x,y)
+#Cada pareja de coordenadas se guarda en una lista.
+#Cada vez que solicitemos coordenadas, preguntamos si quiere introducir nuevas coordenadas.
+#En caso afirmativo, se solicitan de nuevo. 
+#Si responde que no, finaliza el programa mostrando la lista de coordenadas. 
+
+lista_coordenadas=[] #Siempre hay que empezar definiendo!!
+continuar="S"        #Como hay que pedir si se quiere continuar, ponemos esto. 
+
+while continuar=="S": #Para que la S funcione, antes hay que poner "==" no una. 
+    x=int(input("Introduce coordenada X:  "))
+    y=int(input("Introduce coordenada Y:  "))
+    
+    puntomapa=(x,y)                     #puntomapa+= (ese "=", es para guardar un parámetro)
+    lista_coordenadas.append(puntomapa) 
+    
+    respuesta=input("¿Quieres introducir más coordenadas? (S/N):  ")
+    continuar=respuesta.upper()         #El upper es para que reconozca las mayúsculas. 
+    
+print("Lista completa de coordenadas:   ")
+print(lista_coordenadas)
+#-------------
+#-------------
+#Define
+#Variables
+#Bucle
