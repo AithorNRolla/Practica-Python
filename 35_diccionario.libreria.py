@@ -1,0 +1,87 @@
+"""
+Realiza un progrma para la organizacion de una libreria
+un libro tiene tres propiedades: titulo, autor y precio.
+
+Cuando se inicie el programa, se va a mostrar un menu:
+1-Nuevo libro
+2-Mostrar todos
+3-Buscar por titulo
+4-Libros por precio maximo
+5-Salir
+
+1-Se piden los datos del nuevo libro y se guardan
+2-Se muestran los titulos de todos los libros
+3-Se le pide el titulo y se muestran todos sus datos
+4-Se le pide el precio maximo y se muestran los titulos de los libros cuyo precio sea igual o inferior al introducido
+Despues de ejecutar cualquiera de las anteriores opciones, se muestra de nuevo el menu.
+Asi hasta que elija la opcion 5 que sale del programa
+""" 
+
+#Primero vamos a crear la variable tocha: esto nos permitirá almacenar la información. 
+librería=[]
+#El jodido bucle y las opciones: 
+while True:
+    print("1 - Nuevo libro")
+    print("2 - Mostrar todo")
+    print("3 - Búsqueda por título")
+    print("4 - Libros por precio máximo")
+    print("5 - Salir")
+    opcion=input("Selecciona una opción 1/5:  ").strip()
+    #Cerramos bucle.
+    if opcion=="5":
+        print("Gracias por su visita!")
+        break  #Aquí rompemos el bucle y empiezan las opciones de la 1 a la 5. 
+    elif opcion=="1":
+        print("Añadir nuevo libro:  ")
+        titulo_nuevo=input("Introduce el título nuevo:  ").strip()
+        ya_existe=False #esto me deniega si el título ya está.
+        for libro in librería:
+            if libro ["titulo"].lower()==titulo_nuevo.lower():
+                ya_existe=True #Esto me permite introducir el nuevo título. 
+        if ya_existe==False:
+            autor=input("Introduce el autor:  ").strip()
+            precio=float(input("Introduce el precio:  "))
+            tarjeta_libro={
+                "titulo":titulo_nuevo,
+                "autor": autor,
+                "precio": precio
+            }
+            librería.append(tarjeta_libro)
+            print("¡Libro guardado con éxito!")
+        else: 
+         print("Este libro ya está en la librería.")
+            
+    #Seguramente tengamos que poner algo aquí fijo. 
+    elif opcion=="2":
+        print("[Listado de todos los libros]")
+        for c in librería:
+            print(c["titulo"])
+    #Fijo que nos comemos mierdón aquí por bucle. 
+    elif opcion=="3":
+        print("Búsqueda por título:  ")
+        busqueda=input()
+        encontrado=False
+        for c in librería: 
+            if c["titulo"].lower()==busqueda.lower(): #Aquí es dónde pedimos más información del libro. 
+                print("¡Encontrado!")
+                print(f"Título: {c['titulo']}") #la F roja de formato me permite enviarle eso al usuaio. 
+                print(f"Autor: {c['autor']}")
+                print(f"Precio: {c['precio']}")
+                encontrado=True
+        if encontrado==False:
+            print("No se ha encontrado el libro.")       
+    #Dejamos espacio entre opciones para anotar.  
+    elif opcion=="4":
+        print("Precios máximos:  ")
+        precio_maximo=float(input("Introduce máximos:  "))
+        print(f"Libros que cuestan {precio_maximo}€ o menos:  ")
+        encontrado=False
+        for c in librería:
+            if c["precio"]<=precio_maximo:
+                print(f"{c['titulo']} ({c['precio']}€)")
+                encontrado=True
+            if encontrado==False: #Al loro por que me daba error por estár pegado a la izquierda. 
+             print("No hay ningún libro con ese precio. ")
+    #La judeada histórica, aquí te clavan. 
+    else:
+        print("Opción no válida, elija entre 1/5.")
