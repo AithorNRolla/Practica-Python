@@ -26,27 +26,27 @@ while True:
     print("3 - Búsqueda por título")
     print("4 - Libros por precio máximo")
     print("5 - Salir")
-    opcion=input("Selecciona una opción 1/5:  ").strip()
+    opcion=input("Selecciona una opción 1/5:  ").strip() #El strip borra espacios en los textos.
     #Cerramos bucle.
     if opcion=="5":
         print("Gracias por su visita!")
         break  #Aquí rompemos el bucle y empiezan las opciones de la 1 a la 5. 
     elif opcion=="1":
-        print("Añadir nuevo libro:  ")
-        titulo_nuevo=input("Introduce el título nuevo:  ").strip()
+        print("Añadir nuevo libro")
+        titulo_nuevo=input("Introduce el título nuevo:  ").strip() #El strip borra espacios en los textos.
         ya_existe=False #esto me deniega si el título ya está.
         for libro in librería:
-            if libro ["titulo"].lower()==titulo_nuevo.lower():
+            if libro ["titulo"].lower()==titulo_nuevo.lower(): #lower hace que todo esté en minúsculas. 
                 ya_existe=True #Esto me permite introducir el nuevo título. 
         if ya_existe==False:
-            autor=input("Introduce el autor:  ").strip()
+            autor=input("Introduce el autor:  ").strip() #El strip borra espacios en los textos.
             precio=float(input("Introduce el precio:  "))
             tarjeta_libro={
                 "titulo":titulo_nuevo,
                 "autor": autor,
                 "precio": precio
             }
-            librería.append(tarjeta_libro)
+            librería.append(tarjeta_libro) #aquí añadimos cualquier cosa al final de la lista. 
             print("¡Libro guardado con éxito!")
         else: 
          print("Este libro ya está en la librería.")
@@ -61,8 +61,8 @@ while True:
         print("Búsqueda por título:  ")
         busqueda=input()
         encontrado=False
-        for c in librería: 
-            if c["titulo"].lower()==busqueda.lower(): #Aquí es dónde pedimos más información del libro. 
+        for c in librería:  #Aquí es dónde pedimos más información del libro.
+            if c["titulo"].lower()==busqueda.lower():  #lower hace que todo esté en minúsculas. 
                 print("¡Encontrado!")
                 print(f"Título: {c['titulo']}") #la F roja de formato me permite enviarle eso al usuaio. 
                 print(f"Autor: {c['autor']}")
