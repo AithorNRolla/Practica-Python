@@ -124,5 +124,5 @@ def curso_media_mayor():
     print(f"El curso con la media más alta es {nombre_curso}")
 
 #Llamadas a las funciones (siempre hay que ponerlas abajo, no funciona como las variables.)
-st.write.(curso_antes())
-st.write.(curso_media_mayor())
+st.write(curso_antes())
+st.write(curso_media_mayor())
