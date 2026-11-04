@@ -16,6 +16,7 @@ Cuando se inicie el programa, se va a mostrar un menu:
 Despues de ejecutar cualquiera de las anteriores opciones, se muestra de nuevo el menu.
 Asi hasta que elija la opcion 5 que sale del programa
 """
+#Este es el ejecicio 35 de librerías, solo le hemos añadido los lambdas.
 libros=[]
 def mostrar_menu():
     print("\n--- MENÚ ---")
@@ -29,7 +30,7 @@ def titulos():
     for lib in libros:
         print(f"Título: {lib["titulo"]} precio:{lib["precio"]}")
 def buscar_titulo(titulo): 
-    resultado=list(filter(lambda lb:lb["titulo"].lower()==titulo.lower()))
+    resultado=list(filter(lambda lb:lb["titulo"].lower()==titulo.lower())) #lamba
     if resultado:
          print("Se ha encontrado tu libro")
          print(f"Título: {resultado[0]['titulo']} Autor: {resultado[0]['autor']} Precio: {resultado[0]['precio']}")
@@ -51,8 +52,8 @@ def nuevo_libro():
 		print("Libro repetido, no se agregó")
 def libros_por_precio_maximo(max_precio):  
     #titulos = [n["titulo"] for n in libros if n["precio"]<=max_precio] 
-    titulos=list(map(lambda lb:lb["titulo"],
-                    filter(lambda lb:lb["precio"]<=max_precio)))  
+    titulos=list(map(lambda lb:lb["titulo"],                                #lamba
+                    filter(lambda lb:lb["precio"]<=max_precio)))            #lamba
     if len(titulos)>0:
         print(f"Libros con precio <= {max_precio}:")
         for j in titulos:
