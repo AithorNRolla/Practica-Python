@@ -84,6 +84,7 @@ curso_media_mayor()
 """
 
 import streamlit as st
+st.title("**Comentario de cursos**")
 import datetime as dt #si quiero usar DT tengo que ponerlo así: import datetime as dt. 
 cursos=[
     {"denominacion":"Python y datos","calificaciones":[5.6,7.8,3.3,7.2],"fecha_fin":"10/03/2026"},
